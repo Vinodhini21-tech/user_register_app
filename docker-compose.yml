@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  nextjs-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: user_login_app:v1.1
+    container_name: user_login_app-nextjs
+    restart: "unless-stopped"
+    ports:
+      - "3000:3000"
+    secrets:
+      - db_user
+      - db_password
+      - db_host
+      - db_name
+secrets:
+  db_user:
+    external: true
+  db_password:
+    external: true
+  db_host:
+    external: true
+  db_name:
+    external: true

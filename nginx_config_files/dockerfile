@@ -1,0 +1,11 @@
+# Use the official NGINX image from the Docker Hub as the base image
+FROM nginx:latest
+
+# Copy your custom NGINX configuration file into the container
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Optionally, copy static files or other resources
+# COPY static-content/ /usr/share/nginx/html/
+
+# Expose port 80 to the outside world
+EXPOSE 80
