@@ -1,12 +1,9 @@
 version: '3.7'
 services:
   nextjs-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: user_login_app:v1.1
+    image: vinodhini21/user_login_app:v1.1
     container_name: user_login_app-nextjs
-    restart: "unless-stopped"
+    restart: unless-stopped
     ports:
       - "3000:3000"
     secrets:
