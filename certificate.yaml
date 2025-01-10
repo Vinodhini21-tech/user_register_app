@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: vitest-tls
   issuerRef:
-    name: letsencrypt-prod
+    name: letsencrypt-prod-key
     kind: ClusterIssuer
   dnsNames:
   - vitest.uizb210.xyz
