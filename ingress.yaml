@@ -11,13 +11,13 @@ spec:
       - vitest.uizb210.xyz  # Your domain
     secretName: mycoolapp-tls  # Secret to store the TLS certificate
   rules:
-  - host: vitest.uizb210.xyz
+  - host: vitest.uizb210.xyz  # Your domain
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: mycoolapp
+            name: user-login-service  # Updated service name
             port:
               number: 80
