@@ -4,9 +4,9 @@ metadata:
   name: vitest-tls
   namespace: default
 spec:
-  secretName: vitest-tls
+  secretName: vitest-tls  # The Secret to store the issued certificate
   issuerRef:
-    name: letsencrypt-prod
-    kind: ClusterIssuer
+    name: letsencrypt-prod  # Reference to the ClusterIssuer
+    kind: ClusterIssuer     # Type of the issuer
   dnsNames:
-  - vitest.uizb210.xyz
+    - vitest.uizb210.xyz    # The domain for which the certificate is requested
