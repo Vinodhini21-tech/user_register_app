@@ -1,17 +1,15 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: user-login-ingress
-  namespace: default
+  name: my-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"  # Redirect HTTP to HTTPS
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"  # Specify the ClusterIssuer
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod  # Reference the ClusterIssuer
 spec:
   tls:
   - hosts:
-      - vitest.uizb210.xyz
-    secretName: vitest-tls  # The certificate will be stored here
+      - vitest.uizb210.xyz  # Your domain
+    secretName: mycoolapp-tls  # Secret to store the TLS certificate
   rules:
   - host: vitest.uizb210.xyz
     http:
@@ -20,6 +18,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: user-login-service
+            name: mycoolapp
             port:
-              number: 3000
+              number: 80
