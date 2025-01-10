@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: user-login-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"  # Redirect HTTP to HTTPS
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"  # Specify the ClusterIssuer
+spec:
+  tls:
+  - hosts:
+      - vitest.uizb210.xyz
+    secretName: vitest-tls  # The certificate will be stored here
+  rules:
+  - host: vitest.uizb210.xyz
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: user-login-service
+            port:
+              number: 3000
