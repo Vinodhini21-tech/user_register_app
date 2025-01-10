@@ -14,4 +14,4 @@ spec:
               service:
                 name: user-login-service 
                 port:
-                  number: 32301
+                  number: 3000
