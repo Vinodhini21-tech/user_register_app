@@ -9,7 +9,7 @@ spec:
   tls:
   - hosts:
       - vitest.uizb210.xyz  # Your domain
-    secretName: mycoolapp-tls  # Secret to store the TLS certificate
+    secretName: vitest-tls  # Secret to store the TLS certificate
   rules:
   - host: vitest.uizb210.xyz  # Your domain
     http:
