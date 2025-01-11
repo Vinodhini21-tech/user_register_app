@@ -1,10 +1,10 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: vitest-tls
+  name: letsencrypt-nginx
   namespace: default
 spec:
-  secretName: vitest-tls  # The Secret to store the issued certificate
+  secretName: letsencrypt-nginx  # The Secret to store the issued certificate
   issuerRef:
     name: letsencrypt-prod  # Reference to the ClusterIssuer
     kind: ClusterIssuer     # Type of the issuer
