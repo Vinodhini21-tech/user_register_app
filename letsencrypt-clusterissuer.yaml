@@ -12,3 +12,4 @@ spec:
       - http01:
           ingress:
             class: nginx  # Use Nginx ingress controller for HTTP-01 challenge
+
